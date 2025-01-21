@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.ChangePassActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/baseline_arrow_back_24">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reset Password"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_black"
+        android:layout_marginStart="20dp">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Password"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+    </TextView>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/currPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPassword"
+        android:hint="Enter your current password"
+        android:layout_marginStart="20dp">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Password"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+    </TextView>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/newPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPassword"
+        android:hint="Enter your new password"
+        android:layout_marginStart="20dp">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm New Password Password"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"
+
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+    </TextView>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/conPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:inputType="textPassword"
+        android:hint="Confirm your new password"
+        android:layout_marginStart="20dp">
+
+    </androidx.appcompat.widget.AppCompatEditText>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/tab_round"
+        android:layout_marginEnd="20dp">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+</LinearLayout>

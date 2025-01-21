@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">DairyDelight</string>
+    <string name="register"><u>Register</u></string>
+    <string name="login"><u>Login</u></string>
+    <string name="signUp"><u>Sign Up</u></string>
+    <string name="terms_and_conditions"><font color='#EF6C00'> Terms and Conditions </font> </string>
+    <string name="i_agree_to_the">I agree to the</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save_and_continue">Save and Continue</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="state">State</string>
+    <string name="landmark">LandMark</string>
+    <string name="pin_code">Pin Code</string>
+    <string name="city">City</string>
+    <string name="street_address">Street Address</string>
+    <string name="full_name">Full Name</string>
+    <string name="add_address">Add Address</string>
+    <string name="place_your_order">Place Your Order</string>
+    <string name="credit_debit_card">Credit/Debit Card</string>
+    <string name="upi_wallet">Pay by RazorPay</string>
+    <string name="cash_on_delivery">Cash On Delivery</string>
+
+    <string-array name="country_list">
+        <item>India</item>
+    </string-array>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="close_button">close button</string>
+    <string name="order_check">We\'ll send you the order confirmation to \nyour email id. You can always check your\n order status in My Order section.</string>
+
+</resources>

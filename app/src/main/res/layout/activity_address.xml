@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.AddressActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/add_address"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/savedAddressView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Address"
+            android:padding="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/AddressName"
+            android:layout_width="match_parent"
+            android:padding="13dp"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:layout_weight="2"/>
+            <ImageView
+                android:id="@+id/delAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete_24"
+                android:layout_weight="1">
+            </ImageView>
+        </LinearLayout>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/fname"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/full_name"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/sAddress"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="@string/street_address"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/city"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/pin"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/pin_code"
+        android:inputType="number"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/landmark"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/landmark"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+    <Spinner
+        android:id="@+id/select_country"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:spinnerMode="dialog"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/state"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/state"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/mob"
+        android:layout_width="match_parent"
+        android:background="@drawable/round_textbg"
+        android:padding="13dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/mobile_number"
+        android:inputType="number"
+        android:layout_marginBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/lo_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/i_agree_to_the"
+                android:textColor="@color/textcolor"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_and_conditions">
+            </TextView>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/savecontinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/tab_round"
+        android:text="@string/save_and_continue"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:textSize="18sp"/>
+    </RelativeLayout>
+
+</LinearLayout>

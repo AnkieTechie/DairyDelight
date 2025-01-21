@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/relative"
+    tools:context=".Activity.PaymentActivity">
+    <LinearLayout
+        android:id="@+id/paymentLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="hi"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Payment"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cashonLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:background="@drawable/round_textbg"
+        android:layout_below="@id/paymentLinear">
+    <TextView
+        android:id="@+id/cod"
+        android:layout_width="wrap_content"
+        android:padding="13dp"
+        android:gravity="center_vertical"
+        android:layout_weight="4"
+        android:drawableLeft="@drawable/cod"
+        android:drawablePadding="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cash_on_delivery"
+        android:inputType="text"
+        android:textSize="16sp"/>
+
+        <ImageView
+            android:id="@+id/check"
+            android:layout_width="40dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:src="@drawable/right"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/wallet_upi"
+        android:layout_width="match_parent"
+        android:padding="13dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/round_textbg"
+        android:drawableRight="@drawable/baseline_arrow_forward"
+        android:layout_below="@id/cashonLine"
+        android:gravity="center_vertical"
+        android:layout_weight="4"
+        android:drawableLeft="@drawable/wallet"
+        android:drawablePadding="10dp"
+        android:layout_height="wrap_content"
+        android:text="@string/upi_wallet"
+        android:inputType="text"
+        android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_below="@+id/wallet_upi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:weightSum="2"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:text="Total (Rs)"/>
+                <TextView
+                    android:id="@+id/total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:text="Rs 190"/>
+            </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/grayblack"
+        android:background="@drawable/btn_disabled"
+        android:text="@string/place_your_order"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:enabled="false"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>

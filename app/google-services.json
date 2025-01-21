@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "114706313765",
+    "project_id": "dairydelight-334d9",
+    "storage_bucket": "dairydelight-334d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114706313765:android:87cd4458b1bd8b9c2e85cc",
+        "android_client_info": {
+          "package_name": "com.example.dairydelight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBR6lWjkssHV7Lr5i9jLjFkV4m8QrStj8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
