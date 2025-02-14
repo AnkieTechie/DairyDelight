@@ -2,16 +2,11 @@ package com.example.dairydelight.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dairydelight.R;
 import com.squareup.picasso.Picasso;
@@ -20,7 +15,6 @@ public class SliderDetailsActivity extends AppCompatActivity {
     ImageView Sdetail_img;
     TextView Sdetail_Title,price;
     AppCompatButton SliderBuyNow;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +35,10 @@ public class SliderDetailsActivity extends AppCompatActivity {
         price.setText(pri);
         Picasso.get().load(imageUri).into(Sdetail_img);
 
-        SliderBuyNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        SliderBuyNow.setOnClickListener(v ->
                 startActivity(new Intent(SliderDetailsActivity.
-                        this, AddressActivity.class).putExtra("caraPrice",pri));
-            }
-        });
+                this, AddressActivity.class).putExtra("caraPrice",pri)
+                .putExtra("img", (CharSequence) Sdetail_img)
+                .putExtra("title", (CharSequence) Sdetail_Title)));
     }
 }

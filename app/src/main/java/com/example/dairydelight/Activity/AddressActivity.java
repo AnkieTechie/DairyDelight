@@ -16,9 +16,14 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.example.dairydelight.Models.CartModel;
 import com.example.dairydelight.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class AddressActivity extends AppCompatActivity {
     AppCompatEditText fname, sAddress, city, pin, landmark, state, mob;
@@ -26,10 +31,14 @@ public class AddressActivity extends AppCompatActivity {
     CheckBox lo_checkbox;
     AppCompatButton savecontinue;
     String total;
+    String img;
+    String title;
     ImageView delAddress;
     AppCompatTextView AddressName;
     LinearLayout savedAddressView,formLayout;
     String savedAddress;
+    ArrayList<CartModel> cartList;
+    String fullAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +57,6 @@ public class AddressActivity extends AppCompatActivity {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null) {
-
                     if (formLayout.getVisibility() == View.VISIBLE) {
                         // Form is visible, validate inputs and save the address
                         if (isValidInput()) {
@@ -57,6 +65,7 @@ public class AddressActivity extends AppCompatActivity {
                         }
                     } else if (savedAddressView.getVisibility() == View.VISIBLE) {
                         // Saved address is being used, directly navigate to PaymentActivity
+                        fullAddress();
                         navigateToPaymentActivity();
                     }
                 } else {
@@ -99,12 +108,28 @@ public class AddressActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent.hasExtra("finalTotal")) {
             total = intent.getStringExtra("finalTotal");
+            cartList = (ArrayList<CartModel>) getIntent().getSerializableExtra("cartList");
+            if (cartList != null) {
+                int size = cartList.size();
+                for (int i = 0; i < size; i++) {
+                    CartModel cartItem = cartList.get(i);  // Get each CartModel object by index
+                    title = cartItem.getcTitle();  // Access the title
+                    img = cartItem.getcImage();
+                }
+            }
+
         } else if (intent.hasExtra("dprice")) {
             total = intent.getStringExtra("dprice");
+            title = intent.getStringExtra("prodTitle");
+            img = intent.getStringExtra("pimage");
         } else if (intent.hasExtra("itemPrice")) {
             total = intent.getStringExtra("itemPrice");
+            title = intent.getStringExtra("titles");
+            img = intent.getStringExtra("images");
         } else {
             total = intent.getStringExtra("caraPrice");
+            img = intent.getStringExtra("img");
+            title = intent.getStringExtra("title");
         }
     }
 
@@ -127,14 +152,7 @@ public class AddressActivity extends AppCompatActivity {
 
     // Save the address in SharedPreferences
     private void saveAddress() {
-        String fullAddress = fname.getText().toString() + ", " +
-                sAddress.getText().toString() + ", " +
-                city.getText().toString() + ", " +
-                pin.getText().toString() + ", " +
-                landmark.getText().toString() + ", " +
-                state.getText().toString() + ", " +
-                mob.getText().toString();
-
+        fullAddress();
         SharedPreferences sharedPreferences = getSharedPreferences("AddressDetails", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("fullAddress", fullAddress);
@@ -146,10 +164,23 @@ public class AddressActivity extends AppCompatActivity {
         AddressName.setText(fullAddress);
     }
 
+    private void fullAddress() {
+        fullAddress = fname.getText().toString() + ", " +
+                sAddress.getText().toString() + ", " +
+                city.getText().toString() + ", " +
+                pin.getText().toString() + ", " +
+                landmark.getText().toString() + ", " +
+                state.getText().toString() + ", " +
+                mob.getText().toString();
+    }
+
     // Navigate to PaymentActivity
     private void navigateToPaymentActivity() {
         Intent intent = new Intent(getApplicationContext(), PaymentActivity.class)
-                .putExtra("total", total);
+                .putExtra("total", total)
+                .putExtra("title",title)
+                        .putExtra("image",img)
+                                .putExtra("address",fullAddress);
         startActivity(intent);
     }
 

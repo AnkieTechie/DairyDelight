@@ -77,7 +77,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         cartItemList.remove(position);
         notifyItemRemoved(position);
         updateTotal();
-        // Update total amount
     }
 
 
@@ -88,7 +87,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     public void updateData(List<CartModel> newCartItems) {
         this.cartItemList = newCartItems;
-        notifyDataSetChanged();
         updateTotal();
     }
 

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class TabModel implements Serializable {
     private int id;
-    private String title,description;
+    private String title, description;
     private int price;
     private String image;
 

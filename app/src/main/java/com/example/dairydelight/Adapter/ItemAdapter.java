@@ -60,7 +60,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyItemViewHold
 
         holder.addtocart.setOnClickListener(v -> {
             // Create a new CartModel to add to the cart
-            CartModel newCartItem = new CartModel(productModel.getImage(),productModel.getTitle(),productModel.getDescription(),productModel.getPrice(),1);
+            CartModel newCartItem = new CartModel(productModel.getImage(),productModel.getTitle()
+                    ,productModel.getDescription(),productModel.getPrice(),1);
             databaseHelper=new CartDatabaseHelper(context);
             long result=databaseHelper.addItemToCart(newCartItem);
 
@@ -73,12 +74,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MyItemViewHold
             }
 
         });
-        holder.buyNoww.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String itemPrice=String.valueOf(productModel.getPrice());
-                context.startActivity(new Intent(context, AddressActivity.class).putExtra("itemPrice",itemPrice));
-            }
+        holder.buyNoww.setOnClickListener(v -> {
+            String itemPrice=String.valueOf(productModel.getPrice());
+            context.startActivity(new Intent(context, AddressActivity.class).
+                    putExtra("itemPrice",itemPrice)
+                    .putExtra("titles",productModel.getTitle())
+                    .putExtra("images",productModel.getImage()));
         });
 
     }

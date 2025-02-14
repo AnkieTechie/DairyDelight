@@ -236,29 +236,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.dairydelight.Activity.ChangePassActivity;
 import com.example.dairydelight.Activity.MainActivity;
 import com.example.dairydelight.Activity.MyProfileActivity;
-import com.example.dairydelight.R;
 import com.example.dairydelight.Activity.SignInActivity;
+import com.example.dairydelight.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -302,7 +299,6 @@ public class MyProfileFragment extends Fragment {
 
         // Configure the WebView
         WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true); // Enable JavaScript if required
         webView.setWebViewClient(new WebViewClient());
 
         // Load the Terms and Conditions HTML file from the assets folder
@@ -343,21 +339,16 @@ public class MyProfileFragment extends Fragment {
     private void setupClickListeners() {
         LoginProf.setOnClickListener(v -> navigateToLogin());
         logout.setOnClickListener(v -> logout());
-        myOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OrderFragment orderFragment=new OrderFragment();
-                getFragmentManager().beginTransaction().replace(R.id.frame_layout,new OrderFragment()).addToBackStack(null).commit();
-            }
+        myOrder.setOnClickListener(v -> {
+            OrderFragment orderFragment=new OrderFragment();
+            getFragmentManager().beginTransaction().replace(R.id.frame_layout,new OrderFragment())
+                    .addToBackStack(null).commit();
         });
-        myProf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (user!=null){
-                    startActivity(new Intent(requireContext(), MyProfileActivity.class));
-                }else {
-                    Toast.makeText(getContext(), "Login First", Toast.LENGTH_SHORT).show();
-                }
+        myProf.setOnClickListener(v -> {
+            if (user!=null){
+                startActivity(new Intent(requireContext(), MyProfileActivity.class));
+            }else {
+                Toast.makeText(getContext(), "Login First", Toast.LENGTH_SHORT).show();
             }
         });
 

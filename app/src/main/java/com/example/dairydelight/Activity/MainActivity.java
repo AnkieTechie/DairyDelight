@@ -31,32 +31,26 @@ public class MainActivity extends AppCompatActivity {
         setnavigation();
         // Check if the "show_my_order" flag is true in the Intent
         boolean showMyOrder = getIntent().getBooleanExtra("show_my_order", false);
-
-        // If this is the first time Activity B is being created, show the Home Fragment or My Order
         if (savedInstanceState == null) {
             if (showMyOrder) {
-                // If the flag is set, show "My Order" fragment
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_layout,new OrderFragment()).commit();
+                        .replace(R.id.frame_layout,new OrderFragment())
+                        .addToBackStack(null)
+                        .commit();
             } else {
-                // Otherwise, show the Home Fragment
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.frame_layout,new HomFragment()).commit();
             }
         }
 
-        cartIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyCartFragment myCartFragment = new MyCartFragment();
-
-                // Replace the current fragment in the fragment container with the new fragment
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.frame_layout, myCartFragment) // Use the ID of the fragment container
-                        .addToBackStack(null) // Allow going back to the previous fragment
-                        .commit(); // Commit the transaction
-            }
+        cartIcon.setOnClickListener(v -> {
+            MyCartFragment myCartFragment = new MyCartFragment();
+            // Replace the current fragment in the fragment container with the new fragment
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, myCartFragment) // Use the ID of the fragment container
+                    .addToBackStack(null) // Allow going back to the previous fragment
+                    .commit(); // Commit the transaction
         });
     }
     public void showToolbar() {

@@ -92,21 +92,6 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
         return cartItems;
     }
 
-    // Update - Update an existing cart item
-    public int updateCartItem(CartModel item) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_IMAGE, item.getcImage());
-        values.put(COLUMN_NAME, item.getcTitle());
-        values.put(COLUMN_DESCRIPTION, item.getcDescription());
-        values.put(COLUMN_PRICE, item.getcPrice());
-        values.put(COLUMN_QUANTITY, item.getCquantity());
-
-        int rowsUpdated = db.update(TABLE_CART, values, COLUMN_ID + " = ?", new String[]{String.valueOf(item.getId())});
-        db.close();
-        return rowsUpdated;
-    }
-
     // Update - Update the quantity of a cart item
     public void updateCartItemQuantity(int id, int quantity) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -124,10 +109,4 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    // Delete - Delete all cart items
-    public void deleteAllCartItems() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_CART, null, null);  // Delete all rows
-        db.close();
-    }
 }

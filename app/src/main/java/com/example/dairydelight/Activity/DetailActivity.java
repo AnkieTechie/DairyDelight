@@ -46,7 +46,10 @@ public class DetailActivity extends AppCompatActivity {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailActivity.this,AddressActivity.class).putExtra("dprice",dprice));
+                startActivity(new Intent(DetailActivity.this,AddressActivity.class)
+                        .putExtra("dprice",dprice)
+                        .putExtra("prodTitle",productModel.getTitle())
+                        .putExtra("pimage",productModel.getImage()));
             }
         });
     }

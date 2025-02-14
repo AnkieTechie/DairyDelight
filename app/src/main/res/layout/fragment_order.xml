@@ -16,13 +16,28 @@
         android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:fontFamily="@font/roboto_black"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        >
+
+    </ProgressBar>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/single_chat_layout">
+        tools:listitem="@layout/single_order_layout">
     </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
 
 
 </LinearLayout>
